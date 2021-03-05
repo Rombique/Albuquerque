@@ -8,14 +8,11 @@
 
 <script>
 export default {
-  name: "Search"
+  name: 'Search'
 }
 </script>
 
 <style scoped>
-.container {
-  padding-top: 5%;
-}
 .search {
   width: 100%;
 }

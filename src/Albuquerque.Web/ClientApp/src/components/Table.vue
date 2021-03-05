@@ -1,6 +1,6 @@
 ﻿<template>
   <div class="siimple-grid-row siimple--mt-2">
-    <div class="siimple-grid-col siimple-grid-col--6">
+    <div class="siimple-grid-col siimple-grid-col--12">
       <div class="siimple-table">
         <div class="siimple-table-header">
           <div class="siimple-table-row">
@@ -49,17 +49,6 @@
         </div>
       </div>
     </div>
-    <div class="siimple-grid-col siimple-grid-col--6">
-      <div class="siimple-alert siimple-alert--primary">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit...
-      </div>
-      <div class="siimple-alert siimple-alert--success">
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit...
-      </div>
-    </div>
-    <transition name="bounce">
-      <img v-show="isSmile" class="smile" src="@/assets/smile.jpg"/>
-    </transition>
   </div>
 </template>
 
@@ -70,7 +59,6 @@ export default {
   components: {TableRow},
   data: function() {
     return {
-      isSmile: false,
       item: {
         number: '123123',
         created: '15-12-1990',

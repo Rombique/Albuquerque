@@ -1,22 +1,19 @@
 ﻿<template>
   <div id="home">
-    <Search/>
     <MainButtons/>
     <Table/>
   </div>
 </template>
 
 <script>
-import Table from "@/components/Table"
-import MainButtons from "@/components/MainButtons"
-import Search from "@/components/Search"
+import Table from '@/components/Table'
+import MainButtons from '@/components/MainButtons'
 
 export default {
-  name: "Home",
+  name: 'Home',
   components: {
     Table,
-    MainButtons,
-    Search
+    MainButtons
   }
 }
 </script>
