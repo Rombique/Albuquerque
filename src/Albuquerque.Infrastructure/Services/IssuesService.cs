@@ -7,6 +7,7 @@ using Albuquerque.Core.Entities;
 using Albuquerque.Core.Enums;
 using Albuquerque.Core.Helpers;
 using Albuquerque.Core.Models;
+using MongoDB.Bson;
 using MongoDB.Driver;
 using Omu.ValueInjecter;
 
@@ -33,12 +34,11 @@ namespace Albuquerque.Infrastructure.Services
             return new ServiceResult<Issue>(OperationResultCode.Ok, "", issue);
         }
 
-        public async Task<ServiceResult<Issue>> FindByNumber(string number)
+        public async Task<ServiceResult<ICollection<Issue>>> FindByNumber(string number)
         {
-            var issue = await _dbContext.Issues.Find(p => p.Number == number).Limit(1).FirstOrDefaultAsync();
-            return issue != null 
-                ? new ServiceResult<Issue>(OperationResultCode.Ok, "", issue) 
-                : new ServiceResult<Issue>(OperationResultCode.NotFound);
+            var filter = Builders<Issue>.Filter.Regex("Number", new BsonRegularExpression($"^{number}.*", "i"));
+            var issues = await _dbContext.Issues.Find(filter).ToListAsync();
+            return new ServiceResult<ICollection<Issue>>(OperationResultCode.Ok, "", issues);
         }
 
         public async Task<ServiceResult<ICollection<Issue>>> FindInRange(DateTimeOffset? from, DateTimeOffset? to)

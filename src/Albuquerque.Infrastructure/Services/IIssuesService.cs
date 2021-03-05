@@ -11,7 +11,7 @@ namespace Albuquerque.Infrastructure.Services
     public interface IIssuesService
     {
         public Task<ServiceResult<Issue>> Create(NewIssueModel model);
-        public Task<ServiceResult<Issue>> FindByNumber(string number);
+        public Task<ServiceResult<ICollection<Issue>>> FindByNumber(string number);
         public Task<ServiceResult<ICollection<Issue>>> FindInRange(DateTimeOffset? from, DateTimeOffset? to);
     }
 }
