@@ -5,11 +5,11 @@
         <div class="siimple-table-header">
           <div class="siimple-table-row">
             <div class="siimple-table-cell">#</div>
-            <div class="siimple-table-cell">NUMBER</div>
-            <div class="siimple-table-cell">DATE_CREATED</div>
-            <div class="siimple-table-cell">DATE_DEADLINE</div>
-            <div class="siimple-table-cell">IS_DONE</div>
-            <div class="siimple-table-cell">PLUS_TIME</div>
+            <div class="siimple-table-cell">Номер</div>
+            <div class="siimple-table-cell">Создан</div>
+            <div class="siimple-table-cell">Deadline</div>
+            <div class="siimple-table-cell">Исполнен</div>
+            <div class="siimple-table-cell"></div>
           </div>
         </div>
         <div class="siimple-table-body">
@@ -29,6 +29,7 @@
             <div class="siimple-table-cell">ДА</div>
             <div class="siimple-table-cell"><button class="siimple-btn siimple-btn--primary">+2</button></div>
           </div>
+          <TableRow :index="0" :item="item"/>
           <div class="siimple-table-row siimple-table-row--error">
             <div class="siimple-table-cell">1</div>
             <div class="siimple-table-cell">123</div>
@@ -63,11 +64,20 @@
 </template>
 
 <script>
+import TableRow from "@/components/TableRow";
 export default {
   name: "Table",
+  components: {TableRow},
   data: function() {
     return {
-      isSmile: false
+      isSmile: false,
+      item: {
+        number: '123123',
+        created: '15-12-1990',
+        deadline: '12-12-2021',
+        is_done: 1,
+        type: 0
+      }
     }
   },
   computed: {
