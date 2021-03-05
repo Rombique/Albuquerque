@@ -1,8 +1,10 @@
 <template>
-  <div>
-    <Search/>
-    <MainButtons/>
-    <Table/>
+  <div class="siimple-content siimple-content--extra-large">
+    <div class="siimple-grid">
+      <Search/>
+      <MainButtons/>
+      <Table/>
+    </div>
   </div>
 </template>
 

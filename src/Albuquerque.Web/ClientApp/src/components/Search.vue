@@ -1,17 +1,7 @@
 ﻿<template>
-  <div class="container">
-    <div class="pure-g">
-      <div class="pure-u-1-8"></div>
-      <div class="pure-u-3-4">
-        <form class="pure-form">
-          <fieldset>
-            <label>
-              <input class="search" type="text"/>
-            </label>
-          </fieldset>
-        </form>
-      </div>
-      <div class="pure-u-1-8"></div>
+  <div class="siimple-grid-row siimple--mt-2">
+    <div class="siimple-grid-col siimple-grid-col--12">
+      <input class="siimple-input search" type="text"/>
     </div>
   </div>
 </template>

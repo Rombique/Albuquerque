@@ -1,27 +1,14 @@
 ﻿<template>
-  <div class="buttons">
-    <div class="pure-g">
-      <div class="pure-u-1-8"></div>
-      <div class="pure-u-3-4">
-        <div class="pure-u-1-2">
-          <button class="button-large pure-button pure-button-primary right-margin" href="#">Все</button>
-          <button class="pure-button pure-button-primary button-large right-margin" href="#">Сегодня</button>
-          <button class="pure-button pure-button-primary button-large" href="#">Завтра</button>
-        </div>
-        <div class="pure-u-1-2">
-          <form class="pure-form right-bar">
-            <label>
-              <input class="right-margin" type="date" placeholder="" />
-            </label>
-            <label>
-              <input class="right-margin" type="date" placeholder="" />
-            </label>
-            <button type="submit" class="pure-button pure-button-primary button-large">Диапазон</button>
-          </form>
-        </div>
-        
-      </div>
-      <div class="pure-u-1-8"></div>
+  <div class="siimple-grid-row siimple--mt-1">
+    <div class="siimple-grid-col siimple-grid-col--6">
+      <a class="siimple-btn siimple-btn--primary right-margin" href="#">Все</a>
+      <a class="siimple-btn siimple-btn--primary right-margin" href="#">Сегодня</a>
+      <a class="siimple-btn siimple-btn--primary" href="#">Завтра</a>
+    </div>
+    <div class="siimple-grid-col siimple-grid-col--6 range-bar">
+      <input type="date" class="siimple-input right-margin" />
+      <input type="date" class="siimple-input right-margin" />
+      <button class="siimple-btn siimple-btn--primary">Диапазон</button>
     </div>
   </div>
 </template>
@@ -33,18 +20,9 @@ export default {
 </script>
 
 <style scoped>
-.buttons {
-  padding-top: 20px;
+.range-bar {
+  text-align: right;
 }
-
-.button-large {
-  font-size: 110% !important;
-}
-
-.right-bar {
-  float: right;
-}
-
 .right-margin {
   margin-right: 5px;
 }
