@@ -8,7 +8,7 @@ namespace Albuquerque.Core.Models
         [Required]
         public string Number { get; set; }
         [Required]
-        public DateTimeOffset Deadline { get; set; }
+        public DateTime Deadline { get; set; }
         public string Comments { get; set; }
     }
 }

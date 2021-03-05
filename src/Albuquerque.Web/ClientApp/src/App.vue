@@ -6,8 +6,6 @@
       <div id="notifications">
         <Notification v-for="item in notifications" :key="item.id" :value="item"/>
       </div>
-      {{notifications}}
-      <button v-on:click="add()">ADD</button>
     </div>
   </div>
 </template>

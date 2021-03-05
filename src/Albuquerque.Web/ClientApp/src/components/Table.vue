@@ -4,7 +4,7 @@
       <div class="siimple-table">
         <div class="siimple-table-header">
           <div class="siimple-table-row">
-            <div class="siimple-table-cell">#</div>
+            <div class="siimple-table-cell siimple-table-cell--1">#</div>
             <div class="siimple-table-cell">Номер</div>
             <div class="siimple-table-cell">Создан</div>
             <div class="siimple-table-cell">Deadline</div>
@@ -14,43 +14,7 @@
           </div>
         </div>
         <div class="siimple-table-body">
-          <div class="siimple-table-row siimple-table-row--success">
-            <div class="siimple-table-cell">1</div>
-            <div class="siimple-table-cell">123</div>
-            <div class="siimple-table-cell">15.12.2020</div>
-            <div class="siimple-table-cell">15.12.2021</div>
-            <div class="siimple-table-cell">ДА</div>
-            <div class="siimple-table-cell">Lorem ipsum Lorem ipsum Lorem</div>
-            <div class="siimple-table-cell"><button v-on:click="isSmile = !isSmile" class="siimple-btn siimple-btn--primary">+2</button></div>
-          </div>
-          <div class="siimple-table-row siimple-table-row--warning">
-            <div class="siimple-table-cell">1</div>
-            <div class="siimple-table-cell">123</div>
-            <div class="siimple-table-cell">15.12.2020</div>
-            <div class="siimple-table-cell">15.12.2021</div>
-            <div class="siimple-table-cell">ДА</div>
-            <div class="siimple-table-cell">ДА</div>
-            <div class="siimple-table-cell"><button class="siimple-btn siimple-btn--primary">+2</button></div>
-          </div>
-          <TableRow :index="0" :item="item"/>
-          <div class="siimple-table-row siimple-table-row--error">
-            <div class="siimple-table-cell">1</div>
-            <div class="siimple-table-cell">123</div>
-            <div class="siimple-table-cell">15.12.2020</div>
-            <div class="siimple-table-cell">15.12.2021</div>
-            <div class="siimple-table-cell">ДА</div>
-            <div class="siimple-table-cell">ДА</div>
-            <div class="siimple-table-cell"><button class="siimple-btn siimple-btn--primary">+2</button></div>
-          </div>
-          <div class="siimple-table-row siimple-table-row--warning">
-            <div class="siimple-table-cell">1</div>
-            <div class="siimple-table-cell">123</div>
-            <div class="siimple-table-cell">15.12.2020</div>
-            <div class="siimple-table-cell">15.12.2021</div>
-            <div class="siimple-table-cell">ДА</div>
-            <div class="siimple-table-cell">ДА</div>
-            <div class="siimple-table-cell"><button class="siimple-btn siimple-btn--primary">+2</button></div>
-          </div>
+          <TableRow v-for="(item, index) in issues" :item="item" :key="index"/>
         </div>
       </div>
     </div>
@@ -58,7 +22,8 @@
 </template>
 
 <script>
-import TableRow from "@/components/TableRow";
+import TableRow from '@/components/TableRow'
+
 export default {
   name: "Table",
   components: {TableRow},
@@ -74,35 +39,15 @@ export default {
     }
   },
   computed: {
-    
+    issues: function () {
+      return this.$store.state.issues;
+    }
+  },
+  created() {
   }
 }
 </script>
 
 <style scoped>
-.bounce-enter-active {
-  animation: bounce-in .5s;
-}
-.bounce-leave-active {
-  animation: bounce-in .5s reverse;
-}
-@keyframes bounce-in {
-  0% {
-    transform: scale(0);
-  }
-  50% {
-    transform: scale(1.5);
-  }
-  100% {
-    transform: scale(1);
-  }
-}
 
-.smile {
-  position: absolute;
-  width: 256px;
-  height: 256px;
-  right: 50px;
-  bottom: 50px;
-}
 </style>

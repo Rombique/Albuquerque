@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading.Tasks;
 using Albuquerque.Core.Data;
 using Albuquerque.Core.Entities;
@@ -23,7 +24,7 @@ namespace Albuquerque.Infrastructure.Services
         public async Task<ServiceResult<Issue>> Create(NewIssueModel model)
         {
             var findByNumRes = await FindByNumber(model.Number);
-            if (!findByNumRes.IsError)
+            if (findByNumRes.Value.Any())
                 return new ServiceResult<Issue>(OperationResultCode.UnprocessableEntity,
                     $"Заявка с номером {model.Number} уже существует");
 
@@ -41,11 +42,11 @@ namespace Albuquerque.Infrastructure.Services
             return new ServiceResult<ICollection<Issue>>(OperationResultCode.Ok, "", issues);
         }
 
-        public async Task<ServiceResult<ICollection<Issue>>> FindInRange(DateTimeOffset? from, DateTimeOffset? to)
+        public async Task<ServiceResult<ICollection<Issue>>> FindInRange(DateTime? from, DateTime? to)
         {
             var issues = await _dbContext.Issues.Find(p => 
-                p.Deadline >= (from ?? DateTimeOffset.MinValue) 
-                && p.Deadline <= (to ?? DateTimeOffset.MaxValue)).ToListAsync();
+                p.Deadline >= (from ?? DateTime.MinValue) 
+                && p.Deadline <= (to ?? DateTime.MaxValue)).ToListAsync();
             return new ServiceResult<ICollection<Issue>>(OperationResultCode.Ok, "", issues);
         }
     }
