@@ -40,7 +40,10 @@ export default {
   },
   computed: {
     issues: function () {
-      return this.$store.state.issues;
+      if (this.$store.state.isSearch) 
+        return this.$store.state.searchResults;
+      else
+        return this.$store.state.issues;
     }
   },
   created() {

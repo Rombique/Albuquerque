@@ -1,7 +1,12 @@
 ﻿<template>
   <div id="home">
-    <MainButtons/>
-    <Table/>
+    <template v-if="currentTab == 'dashboard'">
+      <MainButtons/>
+      <Table/>
+    </template>
+    <template v-else>
+      asdsad
+    </template>
   </div>
 </template>
 
@@ -11,9 +16,22 @@ import MainButtons from '@/components/MainButtons'
 
 export default {
   name: 'Home',
+  data: function() {
+    return {
+      isDashboard: true
+    }
+  },
   components: {
     Table,
     MainButtons
+  },
+  computed: {
+    currentTab: function () {
+      return this.$store.state.currentTab;
+    },
+    isLoading: function () {
+      return this.$store.state.isLoading;
+    }
   }
 }
 </script>
