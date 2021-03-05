@@ -5,6 +5,7 @@
     <div class="siimple-table-cell">{{item.created}}</div>
     <div class="siimple-table-cell">{{item.deadline}}</div>
     <div class="siimple-table-cell">{{item.is_done ? 'Да' : 'Нет'}}</div>
+    <div class="siimple-table-cell">{{item.comments}}</div>
     <div class="siimple-table-cell"><input class="siimple-input hours" value="2" type="number"/><button class="siimple-btn siimple-btn--primary">+</button></div>
   </div>
 </template>

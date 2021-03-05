@@ -9,6 +9,7 @@
             <div class="siimple-table-cell">Создан</div>
             <div class="siimple-table-cell">Deadline</div>
             <div class="siimple-table-cell">Исполнен</div>
+            <div class="siimple-table-cell">Комментарий</div>
             <div class="siimple-table-cell"></div>
           </div>
         </div>
@@ -19,6 +20,7 @@
             <div class="siimple-table-cell">15.12.2020</div>
             <div class="siimple-table-cell">15.12.2021</div>
             <div class="siimple-table-cell">ДА</div>
+            <div class="siimple-table-cell">Lorem ipsum Lorem ipsum Lorem</div>
             <div class="siimple-table-cell"><button v-on:click="isSmile = !isSmile" class="siimple-btn siimple-btn--primary">+2</button></div>
           </div>
           <div class="siimple-table-row siimple-table-row--warning">
@@ -26,6 +28,7 @@
             <div class="siimple-table-cell">123</div>
             <div class="siimple-table-cell">15.12.2020</div>
             <div class="siimple-table-cell">15.12.2021</div>
+            <div class="siimple-table-cell">ДА</div>
             <div class="siimple-table-cell">ДА</div>
             <div class="siimple-table-cell"><button class="siimple-btn siimple-btn--primary">+2</button></div>
           </div>
@@ -36,6 +39,7 @@
             <div class="siimple-table-cell">15.12.2020</div>
             <div class="siimple-table-cell">15.12.2021</div>
             <div class="siimple-table-cell">ДА</div>
+            <div class="siimple-table-cell">ДА</div>
             <div class="siimple-table-cell"><button class="siimple-btn siimple-btn--primary">+2</button></div>
           </div>
           <div class="siimple-table-row siimple-table-row--warning">
@@ -43,6 +47,7 @@
             <div class="siimple-table-cell">123</div>
             <div class="siimple-table-cell">15.12.2020</div>
             <div class="siimple-table-cell">15.12.2021</div>
+            <div class="siimple-table-cell">ДА</div>
             <div class="siimple-table-cell">ДА</div>
             <div class="siimple-table-cell"><button class="siimple-btn siimple-btn--primary">+2</button></div>
           </div>

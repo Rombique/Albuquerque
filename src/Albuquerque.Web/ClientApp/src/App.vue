@@ -1,5 +1,5 @@
 <template>
-  <div class="siimple-content siimple-content--large">
+  <div class="siimple-content siimple-content--extra-large">
     <div class="siimple-grid">
       <Search/>
       <router-view></router-view>
@@ -49,5 +49,6 @@ export default {
   right: 20px;
   bottom: 10px;
   max-width: 200px;
+  min-width: 200px;
 }
 </style>

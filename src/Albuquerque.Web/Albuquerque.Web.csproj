@@ -13,4 +13,9 @@
       <Folder Include="wwwroot" />
     </ItemGroup>
 
+    <ItemGroup>
+      <ProjectReference Include="..\Albuquerque.Core\Albuquerque.Core.csproj" />
+      <ProjectReference Include="..\Albuquerque.Infrastructure\Albuquerque.Infrastructure.csproj" />
+    </ItemGroup>
+
 </Project>
