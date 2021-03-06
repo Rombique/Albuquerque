@@ -2,10 +2,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Threading.Tasks;
 using Albuquerque.Core.Data;
 using Albuquerque.Core.Entities;
 using Albuquerque.Core.Enums;
+using Albuquerque.Core.Extensions;
 using Albuquerque.Core.Helpers;
 using Albuquerque.Core.Models;
 using MongoDB.Bson;
@@ -42,11 +44,18 @@ namespace Albuquerque.Infrastructure.Services
             return new ServiceResult<ICollection<Issue>>(OperationResultCode.Ok, "", issues);
         }
 
-        public async Task<ServiceResult<ICollection<Issue>>> FindInRange(DateTime? from, DateTime? to)
+        public async Task<ServiceResult<ICollection<Issue>>> FindInRange(DateTime? from, DateTime? to, bool includeIsDone = false)
         {
-            var issues = await _dbContext.Issues.Find(p => 
-                p.Deadline >= (from ?? DateTime.MinValue) 
-                && p.Deadline <= (to ?? DateTime.MaxValue)).ToListAsync();
+            Expression<Func<Issue, bool>> filter = p =>
+                p.Deadline >= (from ?? DateTime.MinValue)
+                && p.Deadline <= (to ?? DateTime.MaxValue);
+            if (!includeIsDone) // FIXME: 
+                filter = p =>
+                    p.Deadline >= (from ?? DateTime.MinValue)
+                    && p.Deadline <= (to ?? DateTime.MaxValue)
+                    && p.IsDone == includeIsDone;
+
+            var issues = await _dbContext.Issues.Find(filter).ToListAsync();
             return new ServiceResult<ICollection<Issue>>(OperationResultCode.Ok, "", issues);
         }
     }

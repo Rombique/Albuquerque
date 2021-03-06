@@ -1,11 +1,16 @@
 ﻿<template>
   <div class="siimple-grid-row siimple--mt-1">
-    <div class="siimple-grid-col siimple-grid-col--6">
+    <div class="siimple-grid-col siimple-grid-col--4">
       <a class="siimple-btn siimple-btn--primary right-margin" v-on:click="getAll" href="#">Все</a>
       <a class="siimple-btn siimple-btn--primary right-margin" v-on:click="getToday" href="#">Сегодня</a>
       <a class="siimple-btn siimple-btn--primary" v-on:click="getTomorrow" href="#">Завтра</a>
     </div>
-    <div class="siimple-grid-col siimple-grid-col--6 range-bar">
+    <div class="siimple-grid-col siimple-grid-col--8 range-bar">
+      <label class="siimple-label">Отображать исполненные:</label>
+      <div class="siimple-switch">
+        <input type="checkbox" id="mySwitch" checked>
+        <label for="mySwitch"></label>
+      </div>
       <input v-model="from" type="datetime-local" class="siimple-input right-margin" />
       <input v-model="to" type="datetime-local" class="siimple-input right-margin" />
       <button class="siimple-btn siimple-btn--primary" v-on:click="getRange">Диапазон</button>

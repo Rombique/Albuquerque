@@ -12,6 +12,6 @@ namespace Albuquerque.Infrastructure.Services
     {
         public Task<ServiceResult<Issue>> Create(NewIssueModel model);
         public Task<ServiceResult<ICollection<Issue>>> FindByNumber(string number);
-        public Task<ServiceResult<ICollection<Issue>>> FindInRange(DateTime? from, DateTime? to);
+        public Task<ServiceResult<ICollection<Issue>>> FindInRange(DateTime? from, DateTime? to, bool includeIsDone);
     }
 }

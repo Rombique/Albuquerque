@@ -35,9 +35,9 @@ namespace Albuquerque.Web.Controllers
         }
         
         [HttpGet]
-        public async Task<IActionResult> GetAll(DateTime? from, DateTime? to)
+        public async Task<IActionResult> GetAll(DateTime? from, DateTime? to, bool includeIsDone)
         {
-            var res = await _issuesService.FindInRange(from, to);
+            var res = await _issuesService.FindInRange(from, to, includeIsDone);
             return new OkObjectResult(res.Value);
         }
         
