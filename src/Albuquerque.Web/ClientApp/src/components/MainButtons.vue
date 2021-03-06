@@ -57,7 +57,7 @@ export default {
       this.$store.commit('setIsSearch', false);
     },
     getRange() {
-      this.$store.dispatch('getRangeIssues', { from: new Date(this.from), to: new Date(this.to) });
+      this.$store.dispatch('getRangeIssues', { from: this.from ? new Date(this.from) : '', to: this.to ? new Date(this.to) : '' });
       this.$store.commit('setIsSearch', false);
     }
   },
