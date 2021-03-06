@@ -4,7 +4,7 @@
     <div class="siimple-table-cell siimple-table-cell--2">{{item.number}}</div>
     <div class="siimple-table-cell siimple-table-cell--2">{{dateFromObjectId}}</div>
     <div class="siimple-table-cell siimple-table-cell--2">{{new Date(item.deadline).toLocaleString()}}</div>
-    <div class="siimple-table-cell">{{item.is_done ? 'Да' : 'Нет'}}</div>
+    <div class="siimple-table-cell">{{item.isDone ? 'Да' : 'Нет'}}</div>
     <div class="siimple-table-cell siimple-table-cell--7">{{item.comments}}</div>
     <div class="siimple-table-cell siimple-table-cell--1">
       <div class="controls">

@@ -6,9 +6,9 @@
       <a class="siimple-btn siimple-btn--primary" v-on:click="getTomorrow" href="#">Завтра</a>
     </div>
     <div class="siimple-grid-col siimple-grid-col--8 range-bar">
-      <label class="siimple-label">Отображать исполненные:</label>
+      <label class="siimple-label">Запрашивать исполненные:</label>
       <div class="siimple-switch">
-        <input type="checkbox" id="mySwitch" checked>
+        <input type="checkbox" id="mySwitch" v-model="includeIsDone">
         <label for="mySwitch"></label>
       </div>
       <input v-model="from" type="datetime-local" class="siimple-input right-margin" />
@@ -24,7 +24,13 @@ export default {
   data() {
     return {
       from: '',
-      to: ''
+      to: '',
+      includeIsDone: false
+    }
+  },
+  watch: {
+    includeIsDone(val) {
+      this.$store.commit('setIncludeIsDone', val);
     }
   },
   methods: {

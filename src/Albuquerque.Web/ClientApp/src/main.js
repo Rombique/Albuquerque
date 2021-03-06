@@ -18,13 +18,17 @@ const store = new Vuex.Store({
     isSearch: false,
     number: '',
     currentTab: 'dashboard',
-    isLoading: false
+    isLoading: false,
+    includeIsDone: false
   },
   actions: {
-    getAllIssues: function () {
+    getAllIssues: function (state) {
       this.commit('setIsLoading', true);
-      axios.get(baseUrl)
-          .then(res => this.commit('setIssues', res.data.$values))
+      axios.get(baseUrl, {
+        params: {
+          includeIsDone: state.state.includeIsDone
+        }
+      }).then(res => this.commit('setIssues', res.data.$values))
           .catch(console.log);
     },
     getRangeIssues: function (state, req) {
@@ -32,7 +36,8 @@ const store = new Vuex.Store({
       axios.get(baseUrl, {
         params: { 
           from: req.from,
-          to: req.to
+          to: req.to,
+          includeIsDone: state.state.includeIsDone
         }}).then(res => this.commit('setIssues', res.data.$values))
           .catch(console.log);
     },
@@ -97,6 +102,9 @@ const store = new Vuex.Store({
     },
     setNumber(state, value) {
       state.number = value;
+    },
+    setIncludeIsDone(state, value) {
+      state.includeIsDone = value;
     }
   }
 })
