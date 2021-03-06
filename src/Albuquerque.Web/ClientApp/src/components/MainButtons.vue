@@ -32,6 +32,7 @@ export default {
       let last = new Date();
       last.setHours(23, 59 ,59 ,999);
       this.$store.dispatch('getRangeIssues', { from: first, to: last });
+      this.$store.commit('setIsSearch', false);
     },
     getTomorrow() {
       const today = new Date();
@@ -42,9 +43,11 @@ export default {
       last.setDate(last.getDate() + 1);
       last.setHours(23, 59 ,59 ,999);
       this.$store.dispatch('getRangeIssues', { from: first, to: last });
+      this.$store.commit('setIsSearch', false);
     },
     getRange() {
       this.$store.dispatch('getRangeIssues', { from: new Date(this.from), to: new Date(this.to) });
+      this.$store.commit('setIsSearch', false);
     }
   },
 }
