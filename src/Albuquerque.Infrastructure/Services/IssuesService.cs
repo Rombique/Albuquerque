@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
@@ -7,7 +6,6 @@ using System.Threading.Tasks;
 using Albuquerque.Core.Data;
 using Albuquerque.Core.Entities;
 using Albuquerque.Core.Enums;
-using Albuquerque.Core.Extensions;
 using Albuquerque.Core.Helpers;
 using Albuquerque.Core.Models;
 using MongoDB.Bson;
