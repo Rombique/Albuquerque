@@ -17,6 +17,7 @@ export default {
   },
   watch: {
     text: function (val) {
+      this.$store.commit('setCurrentTab', 'dashboard');
       if (val === '') {
         this.$store.commit('setIsSearch', false);
         this.inputClass = '';
@@ -31,9 +32,10 @@ export default {
   },
   methods: {
     create: function () {
-      if (this.text.toUpperCase().startsWith('SD') && this.text.length === 12 || this.text.toUpperCase().startsWith('C') && this.text.length ==- 11) {
+      if (this.text.toUpperCase().startsWith('SD') && this.text.length === 12 || this.text.toUpperCase().startsWith('C') && this.text.length == 11) {
         this.inputClass = '';
         this.$store.commit('setCurrentTab', 'create');
+        this.$store.commit('setNumber', this.text);
       } else {
         this.inputClass = 'error';
         this.$store.commit('setCurrentTab', 'dashboard');

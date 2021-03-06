@@ -1,12 +1,17 @@
 ﻿<template>
   <div class="siimple-table-row" :class="getRowClass">
-    <div class="siimple-table-cell siimple-table-cell--1">{{item.$id - 1}}</div>
-    <div class="siimple-table-cell siimple-table-cell--1">{{item.number}}</div>
+    <div class="siimple-table-cell">{{item.$id - 1}}</div>
+    <div class="siimple-table-cell siimple-table-cell--2">{{item.number}}</div>
     <div class="siimple-table-cell siimple-table-cell--2">{{dateFromObjectId}}</div>
     <div class="siimple-table-cell siimple-table-cell--2">{{new Date(item.deadline).toLocaleString()}}</div>
-    <div class="siimple-table-cell siimple-table-cell--1">{{item.is_done ? 'Да' : 'Нет'}}</div>
-    <div class="siimple-table-cell siimple-table-cell--3">{{item.comments}}</div>
-    <div class="siimple-table-cell siimple-table-cell--1"><input class="siimple-input hours" value="2" type="number"/><button class="siimple-btn siimple-btn--primary">+</button></div>
+    <div class="siimple-table-cell">{{item.is_done ? 'Да' : 'Нет'}}</div>
+    <div class="siimple-table-cell siimple-table-cell--7">{{item.comments}}</div>
+    <div class="siimple-table-cell siimple-table-cell--1">
+      <div class="controls">
+        <input class="siimple-input hours" value="2" type="number"/>
+        <button class="siimple-btn siimple-btn--primary">+</button>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -47,5 +52,9 @@ export default {
 
 button {
   margin-left: 5px;
+}
+
+.controls {
+  display: inline-flex;
 }
 </style>

@@ -16,6 +16,7 @@ const store = new Vuex.Store({
     issues: [],
     searchResults: [],
     isSearch: false,
+    number: '',
     currentTab: 'dashboard',
     isLoading: false
   },
@@ -43,6 +44,19 @@ const store = new Vuex.Store({
         }
       }).then(res => this.commit('setSearchResults', res.data.$values))
           .catch(console.log);
+    },
+    createIssue: function (state, req) {
+      axios.post(baseUrl, {
+          number: state.state.number,
+          deadline: req.deadline,
+          comments: req.comments
+        }
+      ).then(res => {
+        this.commit('addIssue', res.data);
+        this.commit('setCurrentTab', 'dashboard');
+        this.commit('setIsSearch', false);
+      })
+          .catch(console.log);
     }
   },
   mutations: {
@@ -61,6 +75,9 @@ const store = new Vuex.Store({
       state.isLoading = false;
       state.issues = issues;
     },
+    addIssue(state, issue) {
+      state.issues.push(issue);
+    },
     setSearchResults(state, issues) {
       state.searchResults = [];
       state.isLoading = false;
@@ -77,6 +94,9 @@ const store = new Vuex.Store({
     },
     setIsSearch(state, value) {
       state.isSearch = value;
+    },
+    setNumber(state, value) {
+      state.number = value;
     }
   }
 })

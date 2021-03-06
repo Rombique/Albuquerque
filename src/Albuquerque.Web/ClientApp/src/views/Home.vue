@@ -5,7 +5,7 @@
       <Table/>
     </template>
     <template v-else>
-      asdsad
+      <CreateIssue/>
     </template>
   </div>
 </template>
@@ -13,6 +13,7 @@
 <script>
 import Table from '@/components/Table'
 import MainButtons from '@/components/MainButtons'
+import CreateIssue from "@/components/CreateIssue";
 
 export default {
   name: 'Home',
@@ -22,6 +23,7 @@ export default {
     }
   },
   components: {
+    CreateIssue,
     Table,
     MainButtons
   },
