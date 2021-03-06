@@ -13,5 +13,6 @@ namespace Albuquerque.Core.Entities
         public string Number { get; set; }
         public DateTime Deadline { get; set; }
         public bool IsDone { get; set; }
+        public string Comments { get; set; }
     }
 }
